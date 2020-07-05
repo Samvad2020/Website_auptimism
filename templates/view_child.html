@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      {% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <title>Create Activity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!---------------------------------------------Bootstrap Files----------------------------------------------------------------------->
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!---------------------------------------------Bootstrap Files End--------------------------------------------------------------------->
+
+<!---------------------------------------------Font Awesome---------------------------------------------------------------------------->
+
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+<!---------------------------------------------Font Awesome End----------------------------------------------------------------------->
+
+<!---------------------------------------------CSS Files------------------------------------------------------------------------------>
+<link rel="stylesheet" href="{% static 'css/Homeplan4.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/topnavbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/sidenav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/createActivity.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/ff.css' %}">
+
+<!---------------------------------------------CSS Files End-------------------------------------------------------------------------->
+
+</head>
+
+<body>
+<form action="/view_child/" method="POST">
+    {% csrf_token %}
+    <!----------------------------------Header-------------------------------->
+ <header>
+    <div class="topnav">
+      <div class="container-fluid">
+        <div class="topnav">
+          <a class="navbar-brand" href="#">
+              <img src="{% static 'img/logo.png' %}" width="110" height="45" class="d-inline-block align-top" alt="" style="float: left;margin-left: 20px;padding-bottom: 10px;">
+
+          </a>
+          <div style="float: right;margin-right:30px;">
+          <a class="btn addChild" href="{% url 'add_profile' %}" role="button">+Add child</a>
+
+          <a href="#search">Contact</a>
+
+
+
+            </div>
+        </div>
+        </div>
+      </div>
+      </header>
+        <!----------------------------------Header End-------------------------------->
+
+    <div class="wrapper">
+    <div class="sidebar">
+        <ul style="list-style-type: none;">
+            <li><a href="{% url 'show' %}"><i class="fas fa-home"></i> Dash Board</a></li>
+            <li><a href="{% url 'view_child' %}"><i class="far fa-calendar-check"></i></i> Student Profile</a></li>
+            <li><a href="{% url 'show_activity' %}"><i class="fas fa-user"></i> Library</a></li>
+
+            <li><a href="https://auptimism.tech/newsfeed/"><i class="fas fa-address-card"></i> Newsfeed</a></li>
+                    </ul>
+
+    </div>
+
+        </div>
+
+      <!-----------Wrapper and Side Bar End-------------->
+
+
+        <div class="main_content" style="margin-top: 70px;">
+
+
+
+            <!---------------Students list-->
+            <div style="border:1px solid #f5f5f5;border-radius:8px;padding:20px;">
+            <div class="row" style="margin-bottom: 10px; margin-left: 180px;">
+
+<!-------------------------------------------------CODE------------------------------------------------------------------------------>
+  {% for i,j in comp_list  %}
+
+   <div class="col-md-3 col-sm-2">
+
+  <div  style="border-radius:1px ;border: 1px solid #ccc; width: 200px;height: 190px;  ">
+      <div class="show-image">
+
+          <div class="img">
+              <div class="card-body">
+                  <img src="{{ j }}" style="width:150px;height: 80px">
+             <a href="{% url 'seechild' i %}"> <center> <b>{{ i }} </b></center></a>
+             <center> <p>group</p></center>
+              </div>
+            </div>
+          </div>
+  </div>
+
+</div>
+    {% endfor %}
+<!-------------------------------------------------CODE------------------------------------------------------------------------------>
+            </div>
+            </div>
+
+
+
+
+                </div>
+
+
+
+
+</div>
+
+
+</form>
+</body>
+</html>

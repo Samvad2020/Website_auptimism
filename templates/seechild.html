@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>See child</title>
+</head>
+<body>
+Welcome !!
+  <p><span id='display'></span></p>
+ {% csrf_token %}
+
+<table border = "1" cellpadding = "5" cellspacing = "5" width = "500">
+    <caption><h2>information</h2></caption>
+
+
+         <tr>
+            <td>{{ information.name }} </td>
+            <td>name</td>
+         </tr>
+
+ </table>
+
+</body>
+</html>

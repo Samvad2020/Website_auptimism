@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    {% load static %}
+    <title>Add Child</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!--------------------------------- jQuery library ------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!----------------------------------- Popper JS ---------------------------->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!---------------------------- Latest compiled JavaScript ------------------>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!--------------------------------- FontAwesome -------------------------->
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<!---CSS----->
+<!---tooltip----->
+<link rel="stylesheet" type="text/css" href="{% static 'css/sidenav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/pp.css' %}">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/topnavbar.css' %}">
+  </head>
+  <body>
+<form action="/addchild/" method="POST">
+    {% csrf_token %}
+  <header>
+  <div class="topnav">
+
+    <div class="container">
+         <a class="navbar-brand" href="#">
+          <img src="{% static 'img/logo.png' %}" width="110" height="45" class="d-inline-block align-top" alt="" style="float:left;margin-left:0px;padding-bottom: 10px;">
+
+        </a>
+
+      <div class="topnav-right">
+        <a href="{% url 'add_profile' %}" class="btn btn-primary bnt-sm" role="button" aria-pressed="true" style="background-color: #FCFCFC;border:none;">+ Add Child</a>
+
+        <a href="#search">Contact</a>
+
+      </div>
+      </div>
+    </div>
+  </header>
+
+
+
+<!-------------wrapper and Sidebar------------------>
+<div class="wrapper">
+    <div class="sidebar">
+        <ul style="list-style-type: none;">
+            <li><a href="{% url 'show' %}"><i class="fas fa-home"></i>Dash Board</a></li>
+            <li><a href="{% url 'view_child' %}"><i class="far fa-calendar-check"></i>Student Profile</a></li>
+
+
+
+            <li><a href="{% url 'show_activity' %}"><i class="fas fa-user"></i>Library</a></li>
+
+            <li><a href="https://auptimism.tech/newsfeed/"><i class="fas fa-address-card"></i>Newsfeed</a></li>
+                    </ul>
+
+    </div>
+
+
+    <div class="main_content" style="margin-top: 70px;">
+      <!-------------wrapper and Sidebar End and add two divs------------------>
+
+      <div >
+      <a href="{% url 'show' %}" style="color: #707070;padding: 20px;text-decoration: none;"> <i class="fas fa-chevron-left" ></i>
+        Back</a>
+      </div>
+
+<div class="container" style="background-color: #FCFCFC;border-radius: 8px;margin-top: 30px;padding: 20px;">
+  <form>
+    <div class="row">
+    <div class="col-md-3">
+        <div class="profile-pic" style="background-image: url({% static 'img/pp.png' %})">
+            <span class="glyphicon glyphicon-camera"></span>
+
+        </div>
+
+    <input type="file" name="files[]" id="files" onchange="uploadimage()">
+    <input type="hidden" name="url" id="url" >
+
+    </div>
+    <div class="col-md-9">
+    <div class="form-row">
+
+    <div class="form-group col-md-5">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Name of Child">
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+          <input type="date" class="form-control" id="inputEmail4" placeholder="date" required pattern="\d{4}-\d{2}-\d{2}" name="dateofbirth">
+        </div>
+        <div class="form-group col-md-3">
+            <select class="form-control" id="gender" name="gender">
+                <option>Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+
+              </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group col-md-9">
+            <label for="address">Address of Communication</label>
+
+            <input type="text" class="form-control" id="Address" name="Address" placeholder="1234 Main St">
+          </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                <input type="text" class="form-control" id="street"  placeholder="Street/Localty">
+              </div>
+              <div class="form-group col-md-3">
+                <select class="form-control" id="state" name="state">
+                    <option>State</option>
+                    <option>Maharashtra</option>
+                    <option>Haryana</option>
+                    <option>Tamilnadu</option>
+                    <option>Telangana</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-3">
+                <input type="tel" class="form-control" id="pincode" name="pincode" placeholder="Pincode">
+              </div>
+            </div>
+
+    </div>
+    </div>
+
+
+
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="mothername" name="mothername" placeholder="Mother's Name">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input type="email" class="form-control" id="motheremail" placeholder="Email Id" name="emailmother">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <input type="tel" class="form-control" id="phonemother" name="phonemother" placeholder="Phone Number">
+                  </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <input type="text" class="form-control" id="fathername" placeholder="Father's Name" name="fathername">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <input type="email" class="form-control" id="emailfather" name="emailfather" placeholder="Email Id">
+                      </div>
+                      <div class="form-group col-md-4">
+                        <input type="tel" class="form-control" id="phonefather" placeholder="Phone Number">
+                      </div>
+                    </div>
+
+                  <h5>Child Details</h5>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <select class="form-control" id="diagnosis" name="diagnosis">
+                                <option>Diagnosis</option>
+                                <option>Autism</option>
+                                <option>ADHD</option>
+                                <option>LD</option>
+                              </select>
+                              <input type="file"  id="rdiagnosis" name="rdiagnosis[]" multiple onchange="diagnosisreport()">
+                              <input type="hidden" name="url1" id="url1">
+
+
+                          </div>
+                          <div class="form-group col-md-4">
+                            <input type="text" class="form-control" id="medicalcondition" name="medicalcondition" placeholder="Medical Condition">
+                            <input type="file"  id="rmedicalcondition" name="rmedicalcondition[]" multiple onchange="conditionreport()" placeholder="Medical Condition" value="upload file">
+                              <input type="hidden" name="url2" id="url2">
+
+                          </div>
+                          <div class="form-group col-md-4">
+
+                            <input type="text" class="form-control" id="medication" name="medication" placeholder="Medication">
+                            <input type="file"  id="rmedication" name="rmedication[]" onchange="medicationreport()" multiple placeholder="Medical Condition">
+                                <input type="hidden" name="url3" id="url3">
+
+
+                          </div>
+                        </div>
+</form>
+     To create IEP click here
+    <a href="{% url 'iep' %}">Create IEP</a>
+<div class="submit" style="text-align:right;margin-right: 100px">
+
+    <button type="submit" class="btn btn-primary" onclick="custom()">Submit</button>
+
+   </div>
+</div>
+
+
+  </div>
+</div>
+
+</form>
+</body>
+  <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+var firebaseConfig = {
+    apiKey: 'AIzaSyABz0n3otYpBXuPF8q_pS-N0rSwwL98gxc',
+    authDomain: "journal-61748.firebaseapp.com",
+    databaseURL: "https://journal-61748.firebaseio.com",
+    storageBucket: "journal-61748.appspot.com",
+  };
+  firebase.initializeApp(firebaseConfig);
+
+  function uploadimage(){
+  var storage = firebase.storage();
+  var file = document.getElementById("files").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+function diagnosisreport(){
+  var storage = firebase.storage();
+  var file = document.getElementById("rdiagnosis").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url1").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+function conditionreport(){
+  var storage = firebase.storage();
+  var file = document.getElementById("rmedicalcondition").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url2").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+function medicationreport(){
+  var storage = firebase.storage();
+  var file = document.getElementById("rmedication").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uplaoded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url3").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+
+
+
+
+
+
+</script>
+</html>

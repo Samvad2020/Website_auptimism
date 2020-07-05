@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  {% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <title>Create Activity</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- FontAwesom -->
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<!---CSS----->
+<link rel="stylesheet" type="text/css" href="{% static 'css/createActivity.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/sidenav.css' %}">
+
+
+<style type="text/css">
+    .hide{
+  display:none;
+}
+.show{
+  display:block;
+}
+  </style>
+ <style type="text/css">
+    .box{
+      width:200px;
+      height:100px;
+      background: #fff;
+      border: 1px solid #f5f5f5;
+      text-align: center;
+
+    }
+
+    .upload{
+      margin:25px;
+    }
+  </style>
+
+<!-----------------JavaScript Files ----------------->
+                  <!---tooltip----->
+
+
+
+
+<script src="{% static 'js/tooltip.js' %}" type="text/javascript"></script>
+                  <!---Points----->
+
+ <script src="{% static 'js/script.js' %}" type="text/javascript"></script>
+
+                  <!---addTextBoxSkills----->
+      <script src="{% static 'js/script2.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/addTextBoxSkills.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/addTextBox.js' %}" type="text/javascript"></script>
+
+ <script type="text/javascript">
+  function onButtonClick(){
+  document.getElementById('textInput').className="show";
+}
+
+</script>
+
+<!-----------------JavaScript Files Ends----------------->
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/topnavbar.css' %}">
+      <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+</head>
+<body>
+  <header>
+  <div class="topnav">
+
+    <div class="container">
+
+      <div class="topnav-right">
+        <a href="AddChild.html" class="btn btn-primary bnt-sm" role="button" aria-pressed="true" style="background-color: #FCFCFC;border:none;">+ Add Child</a>
+
+        <a href="iep.html">Contact</a>
+        <a href="#about"><i class="far fa-bell"></i></a>
+            <a href="#about" style="size:  64px;"><i class="far fa-circle" ></i></a>
+      </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+
+
+
+
+
+<div class="wrapper">
+    <div class="sidebar">
+        <ul style="list-style-type: none;">
+            <li><a href="#"><i class="fas fa-home"></i>Dash Board</a></li>
+            <li><a href="#"><i class="far fa-calendar-check"></i></i>Student Profile</a></li>
+
+
+
+            <li><a href="#"><i class="fas fa-user"></i>Library</a></li>
+
+            <li><a href="https://auptimism.tech/newsfeed/"><i class="fas fa-address-card"></i>Newsfeed</a></li>
+                    </ul>
+
+    </div>
+
+
+
+    <div class="main_content" style="margin-top: 70px;">
+        <div class="container" style="margin-top: 28px;margin-bottom: 10px;">
+            <a class="btn btn-primary" href="#" role="button">Activities</a>
+            <a class="btn btn-primary" href="#" role="button">My Library</a>
+          </div>
+                    <!--------------------------Form Container--------------------------------->
+
+
+                    <div class="container formBody">
+                      <form method="POST" action="/createactivity/">
+                       {% csrf_token %}
+                    <!---------------row1------------------------------------------------------>
+                                <div class="row" style="margin-bottom: 25px">
+                    <!----------------------------video upload--------------------------------->
+
+                              <div class="col-md-5">
+                                <label for="title">Upload</label>
+                                     <a href="#" data-toggle="tooltip" title="Describe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+              <div class="row">
+              <div class="col-xs-2 box"> <div class="col-lg-6 col-sm-6 col-12">
+                    <label class="btn btn-primary upload">
+                        Video&hellip; <input type="file" style="display: none;" id="files" name="files[]" accept="video/*"  onchange="uploadFile()">
+
+                    </label>
+                    <input id="video" name="video" hidden>
+                </div></div>
+
+              <div class="col-xs-2 box"> <div class="col-lg-6 col-sm-6 col-12">
+                    <label class="btn btn-primary upload">
+                        Pdf&hellip; <input type="file" style="display: none;" id="pdffiles" name="pdffiles[]" accept=".pdf" onchange="uploadpdf()">
+                    </label>
+                    <input id="pdf" name="pdf" hidden>
+                </div></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-2 box"> <div class="col-lg-6 col-sm-6 col-12">
+                    <label class="btn btn-primary upload">
+                        Image&hellip; <input type="file" id="imagefiles" name=imagefiles[]" style="display: none;" accept="image/* " onchange="uploadImage()">
+                    </label>
+                    <input id="image" name="image" hidden>
+                </div></div>
+              <div class="col-xs-2 box"> <div class="col-lg-6 col-sm-6 col-12">
+                   <input style="background-color: #007bff;border-radius: 4px;padding:3px ; color: #fff" class="upload"type="button" name="answer" value="Enter URL" onclick="onButtonClick()" />
+        <input class="hide" type="text" id="textInput" name="youtube" placeholder="PASTE YOUTUBE LINK  HERE" />
+                </div></div>
+            </div>
+
+ <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+var firebaseConfig = {
+    apiKey: 'AIzaSyABz0n3otYpBXuPF8q_pS-N0rSwwL98gxc',
+    authDomain: "journal-61748.firebaseapp.com",
+    databaseURL: "https://journal-61748.firebaseio.com",
+    storageBucket: "journal-61748.appspot.com",
+  };
+  firebase.initializeApp(firebaseConfig);
+  function uploadFile(){
+  var storage = firebase.storage();
+  var file = document.getElementById("files").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("url").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+function uploadImage(){
+  var storage = firebase.storage();
+  var file = document.getElementById("imagefiles").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("image").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+function uploadpdf(){
+  var storage = firebase.storage();
+  var file = document.getElementById("pdffiles").files[0];
+  var storageRef = storage.ref();
+  var thisref = storageRef.child(file.name).put(file);
+  thisref.on('state_changed',function(snapshot){
+  console.log("file uploaded succesfully");
+  },
+  function(error) {
+  },
+  function() {
+  // Upload completed successfully, now we can get the download URL
+  var downloadURL = thisref.snapshot.downloadURL;
+  console.log("got url");
+  document.getElementById("pdf").value = downloadURL;
+  alert("file uploaded successfully");
+});
+}
+
+ </script>
+            </div>
+                        <!-----------------------------Row_1 Column-2---------------------------------->
+
+                    <div class="col-md-7">
+
+                     <div class="form-group">
+
+                       <!-----------------------------Title---------------------------------->
+                                          <div>
+                                             <label for="title">Title</label>
+                                            <input type="text" class="form-control title" id="title" name="title" placeholder="Enter" required>
+                                          </div>
+                        <!-----------------------------Discription---------------------------------->
+                                           <div >
+                                            <label for="description">Discription</label> <a href="#" data-toggle="tooltip" title="Discribe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+                                            <textarea style="background-color: #F5F5F5; border: 1px solid #ccc;" class="form-control " id="description"  name="description" rows="4" placeholder="About Activity" maxlength="500"></textarea>
+                                             </div>
+
+                     </div>
+                     </div>
+                 </div>
+
+
+
+              <!------------------------------------Second Row--------------------------------------->
+
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+
+                   <!-----------------------------Categories----------------------------------->
+                                  <div>
+                                        <select class="form-control form-control-md" name="Tags">
+                                                <option>Occupational Therapy</option>
+                                                <option>Speech Therapy</option>
+                                                <option>Daily Life</option>
+
+                                       </select>
+
+                                  </div><br>
+                  <!-----------------------------age Level ------------------------------------>
+
+            <div class="form-group row">
+             <table class=" col-md-11" style="margin-left: 15px;">
+
+            <tbody >
+              <tr>
+                <td >
+                <select class="form-control form-control-md" name="mode">
+                <option>Public</option>
+                <option>Private</option>
+
+                        </select>
+                      </td>
+                <td >
+                <select class="form-control form-control-md" name="age">
+                <option>Age group</option>
+                <option>1-2</option>
+                <option>2-4</option>
+                        <option>4-6</option>
+
+
+                        </select>
+                      </td>
+              </tr>
+
+
+            </tbody>
+          </table>
+             </div>
+                  <!-----------------------------age Level end------------------------------------>
+
+
+                  <!-----------------------------Difficulty Level------------------------------------>
+                                 <div>
+                                    <select class="form-control form-control-md" name="level">
+                                            <option>Difficulty Level</option>
+                                            <option>Easy</option>
+                                            <option>Medium</option>
+                                            <option>Difficult</option>
+
+                                   </select>
+
+                                 </div>
+                </div>
+              </div>
+
+
+             <!--------------------------------Skill Development-------------------------------------->
+
+           <div class="col-md-7">
+
+            <div class="form-group" style="border:1px solid #fff;border-radius: 5px; padding: 5px 10px 45px;background-color: #fff">
+              <label for="title">Skill to Develop</label>
+
+              <a href="#" data-toggle="tooltip" title="Describe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+
+              <div>
+                          <div class='element' id='div_1'>
+
+                            <input type='text' class="mahesh" size="50" placeholder='Eg. Motor Skills' id='txt_1' name="skill_1" width="320px">&nbsp;<span class='add'><i class="fas fa-plus" style="colorrgb(96, 238, 96)"></i> Add </span>
+                        </div>
+               </div>
+              </div>
+              </div>
+              <!--------------------------------Skill Development End-------------------------------------->
+
+              </div>
+              <!--------------------------------AGE Group Skill Development Row End----------------->
+
+
+
+
+              <!--------------------------Instructions and Pros Row Start----------------------------->
+
+              <div class="row">
+             <!--------------------------Pros Start-------------------------------------->
+
+               <div class="col-md-5" >
+               <div class="form-group" style="border:1px solid #fff;background-color: #fff;border-radius: 5px;padding: 5px;">
+
+                             <div>
+                                  <label for="title">Pros Needed</label>
+                                   <a href="#" data-toggle="tooltip" title="Discribe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+
+                                    <textarea onInput="handleInput(event)"  class="form-control notes" id="proneeded" name="proneeded" rows="5" placeholder="" style="border:none;" ></textarea>
+                            </div>
+                </div>
+                </div>
+              <!---------------------------Pros End--------------------------------------------->
+
+              <!---------------------------Instructions Start----------------------------------->
+
+
+               <div class="col-md-7">
+            <div class="form-group" style="border:1px solid #fff;border-radius: 5px; padding: 5px 10px 45px;background-color: #fff">
+                         <div>
+                                        <label for="title">INSTRUCTIONS</label>
+        <a href="#" data-toggle="tooltip" title="Discribe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+
+
+        <div>
+
+          <div class='element2' id='div2_'>
+
+            <input type='text' class="mahesh" size="50" placeholder='Enter Instructions' id='txt2_1' name="inst_1" width="400px">&nbsp;<span class='add2'><i class="fas fa-plus" style="colorrgb(96, 238, 96)"></i> Add </span>
+        </div>
+               </div>
+               </div>
+              </div>
+              </div>
+                 <!------------------------------Instructions End---------------------------------------->
+
+            </div>
+              <!--------------------------Instructions and Pros Row End----------------------------->
+
+
+                 <!--------------------------Tops/Suggestions and Checklist Row-------------------------->
+         <div class="row">
+                 <!--------------------------Tops/Suggestions Start-------------------------------------->
+
+               <div class="col-md-6" >
+               <div class="form-group" style="border:1px solid #fff;background-color: #fff;border-radius: 5px;padding: 5px;">
+
+                             <div>
+                                  <label for="title">Tips/Suggestions</label>
+                                   <a href="#" data-toggle="tooltip" title="Discribe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+
+                                    <textarea onInput="handleInput(event)"  class="form-control notes" id="tips" rows="4" name="tips" placeholder="" style="border:none;" ></textarea>
+                            </div>
+                </div>
+                </div>
+                 <!--------------------------Tops/Suggestions End--------------------------------------->
+
+
+                 <!--------------------------TCheck List Satart----------------------------------------->
+
+
+                 <div class="col-md-6">
+                 <div class="form-group" style="border:2px solid #fff;background-color: #fff;border-radius: 5px;padding: 5px; ">
+                               <div>
+                                    <label for="title">Check List</label>
+                                     <a href="#" data-toggle="tooltip" title="Discribe about activity" style="float:right;"> <i class="fas fa-info-circle"></i></a>
+
+
+                                 <textarea onInput="handleInput(event)" class="form-control notes" id="checklist" name="checklist" rows="4" placeholder="" style="border:none;"></textarea>
+                             </div>
+                 </div>
+                 </div>
+                  <!--------------------------Checklist End-------------------------->
+
+        </div>
+                 <!--------------------------Tops/Suggestions and Checklist Row End-------------------------->
+
+           <!-----------------------------------------------submit start------------------------------------>
+
+                     <div class="submit" style="text-align:right;margin-right: 50px">
+                         <button class="btn btn-primary assign" type="submit">Done</button>
+                     </div>
+           <!-----------------------------------------------submit start------------------------------------>
+
+            </form>
+          </div>
+    </div>
+</div>
+          </div>
+    </div>
+</div>
+</body>
+</html>
+

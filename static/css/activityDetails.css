@@ -1,0 +1,35 @@
+body{  background-color: #fff;
+}
+.details{
+    padding:10px;
+    margin-top: 20px;
+  }
+  
+   .details td {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+  }
+  
+  .details{
+      border:1px solid #f5f1f1;
+      border-radius: 5px;
+      background-color: #f5f5f5;
+      width: 100%;
+
+  }
+  .details table {
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  .activity{
+    margin-top: 15px;
+  }
+  .btn{
+    background-color: #f5f5f5;
+  }
+  ul.c {
+    list-style-type: circle;
+    }
+   

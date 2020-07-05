@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+    <head>
+        {% load static %}
+        <title>IEP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!---------------------------------------------Bootstrap Files----------------------------------------------------------------------->
+
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<!---------------------------------------------Bootstrap Files End--------------------------------------------------------------------->
+
+<!---------------------------------------------Font Awesome---------------------------------------------------------------------------->
+
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+<!---------------------------------------------Font Awesome End----------------------------------------------------------------------->
+
+
+<!---------------------------------------------CSS Files------------------------------------------------------------------------------>
+<link rel="stylesheet" type="text/css" href='{% static "css/sidenav.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/iep2.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/topnavbar.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/ff.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/createActivity.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/iep.css" %}'>
+
+
+
+<!---------------------------------------------CSS Files End-------------------------------------------------------------------------->
+<!---------------------------------------------Javascript Files----------------------------------------------------------------------->
+
+<script src="{% static 'js/specialisAndSkills.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/createTitle.js' %}" type='text/javascript'></script>
+<script src="{% static 'js/points.js' %}" type='text/javascript'></script>
+<!---------------------------------------------Javascript Files End------------------------------------------------------------------->
+
+</head>
+<body>
+  <!----------------------------------Header-------------------------------->
+  <header>
+    <div class="topnav">
+      <div class="container-fluid">
+        <div class="topnav">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="110" height="45" class="d-inline-block align-top" alt="" style="float: left;margin-left: 20px;padding-bottom: 10px;">
+
+          </a>
+          <div style="float: right;margin-right:30px;">
+          <a class="btn addChild" href="AddChild.html" role="button">+Add child</a>
+
+          <a href="#search">Contact</a>
+          <a href="#about"><i class="far fa-bell"></i></a>
+
+        </div>
+        </div>
+        </div>
+      </div>
+      </header>
+      <!----------------------------------Header End-------------------------------->
+
+<div class="wrapper">
+  <div class="sidebar">
+      <ul style="list-style-type: none;">
+          <li><a href="dashboard.html"><i class="fas fa-home"></i>Dash Board</a></li>
+          <li><a href="students.html"><i class="far fa-calendar-check"></i></i>Student Profile</a></li>
+          <li><a href="Homeplan.html"><i class="fas fa-user"></i>Library</a></li>
+          <li><a href="https://auptimism.tech/newsfeed/"><i class="fas fa-address-card"></i>Newsfeed</a></li>
+       </ul>
+
+  </div>
+
+<!-----------Wrapper and Side Bar End-------------->
+
+
+  <div class="main_content" style="margin-top: 70px;">
+    <!------------Student Navigation----------------------------------------->
+    <div class="" style="margin-top: 28px;margin-bottom: 10px;margin-left: 20px;">
+      <a class="btn btn-primary btn-sm" href="HomePlan – 3.html" role="button">Activities</a>
+      <a class="btn btn-primary btn-sm" href="#" role="button">Journal</a>
+      <a class="btn btn-primary btn-sm" href="newIep.html" role="button">IEP</a>
+      <a class="btn btn-primary btn-sm" href="Homeplan-6.html" role="button">Documents</a>
+
+    </div>
+    <!------------Student Navigation End----------------------------------------->
+    <form method="post" action="iep/">
+
+  <div class="row">
+
+  <div class="col-md-9">
+  <div style="border:1px solid #EFEFEF;box-shadow: 0px 3px 6px #00000029;
+border-radius:5px;padding:10px;">
+
+
+
+
+
+<div align="right">
+<div class="form-group">
+<input placeholder="Date" class="textbox-n" id="date" name="date" type="text" onfocus="(this.type='date')" id="date" >
+
+</div>
+</div>
+
+
+
+
+
+<h5 class="ml-3">Specialists</h5>
+
+
+  <div class="row">
+      <!--------------------------------Specialist-------------------------------------->
+      <div class="container" >
+        <div class="div" style="1px solid #f5f5f5;border-radius:5px;background-color:#f5f5f5;padding:10px">
+          <div class="col-md-8">
+
+            <select id="specialist" name="specialist" class="dynamic-option-create-multiple" style="width: 100%;background-color: rgb(160, 96, 96)">
+
+              <option value="a">Deepa</option>
+              <option value="b">Preethi</option>
+              <option value="c">Rakesh</option>
+            </select>
+
+
+    </div>
+    </div>
+  </div>
+          <!--------------------------------Specialist End-------------------------------------->
+      </div>
+    <hr>
+
+<h5 class="ml-3">Skills to Work</h5>
+
+      <!--------------------------------Skill Development-------------------------------------->
+      <div class="row">
+      <div class="container" >
+        <div class="div" style="1px solid #f5f5f5;border-radius:5px;background-color:#f5f5f5;padding:10px">
+
+        <div class="div" style="1px solid #f5f5f5;border-radius:5px;background-color:#f5f5f5;padding:10px">
+          <select id="Skills" name="Skills" class="dynamic-option-create-createTag" style="width: 100%;" size="1" >
+
+            <option value="1">Tactile</option>
+            <option value="2">Auditory</option>
+            <option value="3">Vestibular</option>
+            <option value="4c">Proprioceptive</option>
+            <option value="5">Fine motor </option>
+            <option value="6">Gross motor</option>
+            <option value="7">Motor planning</option>
+            <option value="8">Memory</option>
+            <option value="9">Speech</option>
+            <option value="10">Communication</option>
+            <option value="11">Behavior </option>
+            <option value="12">Taste</option>
+            <option value="13">Decision making</option>
+            <option value="14">Problem solving</option>
+            <option value="New"></option>
+          </select>
+
+    </div>
+    </div>
+  </div>
+  </div>
+
+          <!--------------------------------Skill Development End-------------------------------------->
+
+
+
+
+
+      <!---------------------------Pros End--------------------------------------------->
+      <br>
+
+     <!--------------------------Pros Start-------------------------------------->
+     <div class="row">
+
+      <div class="col-md-12">
+
+        <div class="input_fields_wrap">
+
+          <div class="subdivision">
+              <input class="subtitle"type="text" name="mytext[]" id="subtitle" placeholder="Enter Title"><button class="add_field_button btn btn-primary btn-sm">Add More Fields</button>
+    <br>
+              <textarea name="desc[]" onInput="handleInput(event)" class="notes" name="notes" id="notes"></textarea>
+              <br>
+
+          </div>
+
+      </div>
+      <div class="fab" style="float: right;margin-top:10px;">
+
+        <a class="btn btn-primary"  role="button">Submit</a>
+      </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+      <!---------------------------Pros End--------------------------------------------->
+
+</div>
+</div>
+<div class="col-md-2">
+<div class=" img-fluid center" style="width:240px;margin-left:30px;">
+    <img class="card-img-top" src="images/userf.jpeg" alt="Card image" style="width:100%">
+
+  </div>
+    <form method="post" action="/seechild">
+        {% csrf_token %}
+<div style="border: 1px solid #ccc;background-color: #ccc;border-radius: 4px;margin-top: 20px;padding: 25px;width: 240px">
+  <table>
+
+    <tr>
+      <td>Name</td>
+      <td>{{ information.name }}</td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td>{{ information.Age }}</td>
+    </tr>
+    <tr>
+        <td>Skills</td>
+        <td>{{ information.skills }}</td>
+      </tr>
+      <tr>
+        <td>Diagnosis</td>
+        <td>: Autism  </td>
+      </tr>
+      <tr>
+        <td>Medical Condition</td>
+        <td>: Mild</td>
+      </tr>
+      <tr>
+        <td>Medication</td>
+        <td>: N/A</td>
+      </tr>
+
+  </table>
+
+</div>
+    </form>
+</div>
+  </div></form>
+</div>
+
+</div>
+</div>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+</body>
+</html>
