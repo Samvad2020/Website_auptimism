@@ -152,7 +152,7 @@
                     <input type="email" class="form-control" id="motheremail" placeholder="Email Id" name="emailmother">
                   </div>
                   <div class="form-group col-md-4">
-                    <input type="tel" class="form-control" id="phonemother" name="phonemother" placeholder="Phone Number">
+                    <input type="text" class="form-control" pattern="[1-9]{1}[0-9]{9}" maxlength="10"  id="phonemother" name="phonemother" placeholder="Phone Number">
                   </div>
                 </div>
 
@@ -165,14 +165,14 @@
                         <input type="email" class="form-control" id="emailfather" name="emailfather" placeholder="Email Id">
                       </div>
                       <div class="form-group col-md-4">
-                        <input type="tel" class="form-control" id="phonefather" placeholder="Phone Number">
+                        <input type="text" class="form-control" pattern="[1-9]{1}[0-9]{9}" maxlength="10"  id="phonefather" name="phonefather" placeholder="Phone Number">
                       </div>
                     </div>
 
                   <h5>Child Details</h5>
                     <div class="form-row">
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-4" id="dvFile">
                             <select class="form-control" id="diagnosis" name="diagnosis">
                                 <option>Diagnosis</option>
                                 <option>Autism</option>
@@ -181,6 +181,15 @@
                               </select>
                               <input type="file"  id="rdiagnosis" name="rdiagnosis[]" multiple onchange="diagnosisreport()">
                               <input type="hidden" name="url1" id="url1">
+                            <button onclick="add_more()">add more</button>
+                            <script>
+                            function  add_more() {
+                               var max = 0;
+                               var txt = "<br><input type="file" name="item_file_" + max + ">";
+                                 document.getElementById("dvFile").innerHTML += txt;
+                                 max=max+1;
+                                }
+                            </script>
 
 
                           </div>
@@ -201,7 +210,7 @@
                         </div>
 </form>
      To create IEP click here
-    <a href="{% url 'iep' %}">Create IEP</a>
+    <a href="{% url 'iep'  %}">Create IEP</a>
 <div class="submit" style="text-align:right;margin-right: 100px">
 
     <button type="submit" class="btn btn-primary" onclick="custom()">Submit</button>

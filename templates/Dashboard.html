@@ -39,8 +39,9 @@
 </style>
 </head>
 <body>
+
 {% csrf_token %}
-   <button type="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
+
   <!----------------------------------Header-------------------------------->
   <header>
   <div class="topnav">
@@ -53,7 +54,8 @@
         <div style="float: right;margin-right:30px;">
             <a class="btn addChild" href="{% url 'add_profile' %}" role="button">+Add child</a>
 
-        <a href="#search">Contact</a>
+        <a href="{% url 'contact' %}">Contact</a>
+            <button type="button" onclick="location.href='{% url 'logout' %}'">Logout</button>
        <!-- <a href="#about"><i class="far fa-bell"></i></a>
        <img src="images/user.png" alt="Avatar" class="avatar">  -->
       </div>
@@ -76,7 +78,7 @@
 <div class="wrapper">
     <div class="sidebar">
         <ul style="list-style-type: none;">
-            <li><a href="{% url 'show' %}"><i class="fas fa-home"></i> Dash Board</a></li>
+         <li><a href="{% url 'show' %}"><i class="fas fa-home"></i> Dash Board</a></li>
             <li><a href="{% url 'view_child' %}"><i class="far fa-calendar-check"></i></i> Student Profile</a></li>
             <li><a href="{% url 'show_activity' %}"><i class="fas fa-user"></i> Library</a></li>
 

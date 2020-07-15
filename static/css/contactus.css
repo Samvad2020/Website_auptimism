@@ -1,0 +1,52 @@
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #F5F5F5;
+  }
+ #head{
+     color: #204dea;
+ }
+ .contactus{
+     margin-left:100px;
+     margin-top: 50px;
+ }
+ .customer{
+
+    margin-left: 30px;
+
+ }
+ .content{
+     margin-top: 30px;
+ }
+
+ .vl{
+    border-left: 4px solid #F5F5F5;
+    height: 500px;
+    margin-top: 50px;
+
+ }
+ .care{
+     margin-left: 30px;
+ }
+ #emailHelp{
+font-size: 17px;
+ }
+ #icon{
+     font-size: 24px;
+     color: #204dea;
+ }
+
+ .ho{
+     margin-top: 30px;
+ }
+
+ .enter{
+     margin-top:10px;
+        background-color:#204dea;
+        color: #ffffff;
+        width: 150px;
+
+
+ }

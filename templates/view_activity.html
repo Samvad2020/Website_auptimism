@@ -109,7 +109,7 @@
 
             <div class="carousel-inner">
                  <div class="carousel-item active">
-                          <embed class="card-img-top" src={{ youtube }} alt="Card image cap" style="width: 450px;height:240px">
+                          <embed class="card-img-top" src= {{ youtube }} alt="Card image cap" style="width: 450px;height:240px">
 
               </div>
  {% for i in media %}
@@ -137,7 +137,7 @@
 </div>
 <div class="col-md-6">
     <p style="margin-top:20%;">{{ d }} </p>
-        <p>Age group : {{ Age }}</p>
+
 
         <div>
         <i class="fas fa-tag"></i> {% for i in skill %}<a class="btn btn-light" href="#" role="button" style="margin-left: 3px;">{{ i }}</a>
@@ -151,8 +151,10 @@
 </div>
 <div class="row">
     <div class="col-md">
-    <a class="btn btn-light" href="#" role="button" style="margin-left: 10px;">Public</a>
-            <a class="btn btn-light" href="#" role="button" style="margin-left: 3px;">Medium</a>
+    <a class="btn btn-light" href="#" role="button" style="margin-left: 10px;">Medium:{{ visibility }}</a>
+        <a class="btn btn-light" href="#" role="button" style="margin-left: 3px;">Level :{{ Level }}</a>
+        <a class="btn btn-light" href="#" role="button" style="margin-left: 3px;">Duration :{{ duration }}</a>
+        <a class="btn btn-light" href="#" role="button" style="margin-left: 3px;">Age group : {{ Age }}</a>
         </div>
     </div>
         <div class="row">

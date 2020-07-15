@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+        <title>Library</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- FontAwesom -->
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/sidenav.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/topnavbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ff.css' %}">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+</head>
+<body>
+ <!----------------------------------Header-------------------------------->
+ <form method="post" action="/contact/">
+ <header>
+    <div class="topnav">
+      <div class="container-fluid">
+        <div class="topnav">
+          <a class="navbar-brand" href="#">
+            <img src="images/logo.png" width="110" height="45" class="d-inline-block align-top" alt="" style="float: left;margin-left: 20px;padding-bottom: 10px;">
+
+          </a>
+          <div style="float: right;margin-right:30px;">
+          <a class="btn addChild" href="AddChild.html" role="button">+Add child</a>
+
+          <a href="#search">Contact</a>
+          <a href="#about"><i class="far fa-bell"></i></a>
+          <img src="images/user.png" alt="Avatar" class="avatar">
+        </div>
+        </div>
+        </div>
+      </div>
+      </header>
+   <!----------------------------------Header End-------------------------------->
+  <!-------------------top navigation End-->
+
+  <div class="wrapper">
+    <div class="sidebar">
+        <ul style="list-style-type: none;">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i>Dash Board</a></li>
+            <li><a href="students2.html"><i class="far fa-calendar-check"></i></i>Student Profile</a></li>
+
+
+
+            <li><a href="mov.html"><i class="fas fa-user"></i>Library</a></li>
+
+            <li><a href="http://localhost/kmr/"><i class="fas fa-address-card"></i>Newsfeed</a></li>
+                    </ul>
+
+    </div>
+
+  <!-----------Wrapper and Side Bar End-------------->
+
+
+    <div class="main_content" style="margin-top: 70px;">
+
+
+
+    <!---------------------------------------Contact us------------------------------>
+  <div class="row">
+      <div class="col-md-6">
+            <div class="contactus ">
+                  <h3 id="head"><strong>Contact Us</strong></h3>
+                  <small id="emailHelp" class="form-text text-muted">Use the form below to share your questions, ideas, comments and feedback.</small>
+<form method="post" action="contact">
+{% csrf_token %}
+    <div class="form-group content">
+                    <label for="Email">Email</label>
+                    <input type="email" class="form-control" id="Email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="Message" rows="6" placeholder="Enter Your Message"></textarea>
+
+
+                    <div class="col text-center">
+                        <button class="btn enter" type="submit" value="Submit">
+                        </button></div>
+
+                </div>
+    </form>
+
+            </div>
+
+
+
+      </div>
+
+
+      <div class="col-md-5 customer">
+        <div class="vl">
+            <div class="care">
+                <i class="fas fa-phone-alt" id="icon"></i>
+          <h5 id="who"><b>Customer Care</b></h5>
+          <small id="number1" class="form-text text-muted">1235647895</small>
+          <h5 id="issues"><strong>Techical Issues</strong></h5>
+          <small id="number2" class="form-text text-muted">1235647895</small>
+
+          <h5 id="hours" class="ho"><strong>Hours of Operation</strong></h5>
+          <i class="far fa-clock " id="i"></i>
+          <small id="days" class="form-text text-muted">Monday - Friday</small>
+          <small id="time" class="form-text text-muted">9 a.m - 6 p.m</small>
+
+          <p></p>
+        </div>
+    </div>
+  </div>
+  </div>
+
+
+
+    <!---------------------------------------Contact us end------------------------------>
+
+</div>
+</div>
+
+
+
+
+</form>
+</body>
+</html>

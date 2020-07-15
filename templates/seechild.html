@@ -1,24 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>See child</title>
+  <html lang="en">
+  <head>
+      {% load static %}
+    <title>Add Child</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+  <!--------------------------------- jQuery library ------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!----------------------------------- Popper JS ---------------------------->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!---------------------------- Latest compiled JavaScript ------------------>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!--------------------------------- FontAwesome -------------------------->
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+ 
+<!---CSS----->
+<!---tooltip----->
+<link rel="stylesheet" type="text/css" href="{% static 'css/sidenav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/topnavbar.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/pp.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/ff.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/viewChildProfile.css' %}">
+
+
+
+<style>
+  .avatar {
+   vertical-align: middle;
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   border: 1px solid #F5F5F5;
+ }
+</style>
 </head>
 <body>
-Welcome !!
-  <p><span id='display'></span></p>
- {% csrf_token %}
 
-<table border = "1" cellpadding = "5" cellspacing = "5" width = "500">
-    <caption><h2>information</h2></caption>
+	{% csrf_token %}
+  <!----------------------------------Header-------------------------------->
+  <header>
+  <div class="topnav">
+    <div class="container-fluid">
+      <div class="topnav ">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'img/logo.png' %}" width="110" height="45" class="d-inline-block align-top" alt="" style="float: left;margin-left: 20px;padding-bottom: 10px;">
+        </a>
+      </div>
+      </div>
+      </div>
+    </div>
+    </header> 
+      <!----------------------------------Header End-------------------------------->
 
 
-         <tr>
-            <td>{{ information.name }} </td>
-            <td>name</td>
-         </tr>
 
- </table>
+
+
+
+
+
+
+
+<!-------------wrapper and Sidebar------------------>
+<div class="wrapper">
+    <div class="sidebar">
+        <ul style="list-style-type: none;">
+            <li><a href="{% url 'show' %}"><i class="fas fa-home"></i> Dash Board</a></li>
+            <li><a href="{% url 'view_child' %}"><i class="far fa-calendar-check"></i></i> Student Profile</a></li>
+
+                            
+
+            <li><a href="{% url 'show_activity' %}"><i class="fas fa-user"></i> Library</a></li>
+
+            <li><a href="http://localhost/kmr"><i class="fas fa-address-card"></i> Newsfeed</a></li>
+                    </ul> 
+        
+    </div>
+
+
+    <div class="main_content" style="margin-top: 70px;">
+      <!-------------wrapper and Sidebar End and add two divs------------------>
+
+      <div >
+      <a href="{% url 'view_child'  %}" style="color: #707070;padding: 20px;text-decoration: none;"> <i class="fas fa-chevron-left" ></i>
+        Back</a>
+      </div>
+
+<div class="container" style="background-color: #FCFCFC;border-radius: 8px;margin-top: 30px;padding: 20px;">
+
+  <form>
+      <div class="child">
+    <div class="row">
+
+    <div class="col-md-3">
+        <img class="img-fluid img-thumbnail" src={{ information.profilepic }} alt="picture" style="height:100%; width:80%;">
+
+    </div>
+    <div class="col-md-9">
+    <div class="form-row">
+
+    <div class="form-group col-md-5">
+<p><strong>Name :</strong> {{ information.name }}</p>
+    </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <p id="name"><strong>Date of Birth :</strong>{{ information.DOB }}</p>
+        </div>
+        <div class="form-group col-md-3">
+            <p id="gender"><strong>Gender :</strong> {{ information.Gender }}</p>
+
+        </div>
+      </div>
+   
+      <div class="form-row">
+
+        <div class="form-group col-md-9">
+            <p id="address"><strong>Address :</strong> {{ information.Address }}</p>
+
+          </div>
+        </div>
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+            <p id="street"><strong>Street :</strong> {{ information.Street }}</p>
+              </div>
+              <div class="form-group col-md-3">
+                <p id="state"><strong>State :</strong>{{ information.State }}</p>
+            </div>
+              <div class="form-group col-md-3">
+                <p id="pincode"><strong>Pincode :</strong> {{ information.Pincode }}</p>
+
+            </div>    
+            </div>
+
+    </div>
+    </div>
+</div>
+
+<div class="parents">
+<h5 id="p1"><strong>Parent Details</strong></h5>
+            <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <p id="mothername"><strong> Mother's Name : </strong>{{ information.Mothername }}</p>
+
+                  </div>
+                  <div class="form-group col-md-4">
+                    <p id="mothermail"><strong>Email : </strong>{{ information.Emailmother }}</p>
+
+                  </div>
+                  <div class="form-group col-md-4">
+                    <p id="phonemother"><strong>Phone Number : </strong>{{ information.Phonemother }}</p>
+
+                  </div>    
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-4">
+                        <p id="fathername"><strong>Father's Name :</strong>{{ information.Fathername }}</p>
+
+                      </div>
+                      <div class="form-group col-md-4">
+                        <p id="fathermail"><strong>Email : </strong> {{ information.Emailmother }}</p>
+
+                      </div>
+                      <div class="form-group col-md-4">
+                        <p id="phonefather"><strong>Phone Number : </strong>{{ information.Phonefather }}</p>
+
+                      </div>    
+                    </div>
+
+ </div>
+
+
+
+ <div class="parents">
+
+                  <h5 id="#p1"><strong>Child Details</strong> </h5>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-4">
+                            <p id="diagnosis"><strong>Diagnosis : </strong>{{ information.Diagnosis }}</p>
+                            <a class="btn btn-primary" href="{% url 'reportd' information.name %}" role="button">View Report</a>
+                         
+                          
+                          </div>
+                          <div class="form-group col-md-4">
+                            <p id="Medical"><strong>Medical Condition : </strong>{{ information.medical_condition }}</p>
+
+                                <a class="btn btn-primary" href="{% url 'reportmed' information.name %}" role="button">View Report</a>
+
+                          </div>
+                          <div class="form-group col-md-4">
+                            <p id="medication"><strong>Medication : </strong>{{ information.medication }}</p>
+
+                            <a class="btn btn-primary" href="{% url 'report' information.name %}" role="button">View Report</a>
+
+
+                          </div>
+                        </div>
+                    </div>
+</form>
+
+
+
+</div>
+    </div>
+</div>
+
 
 </body>
 </html>
+
+
